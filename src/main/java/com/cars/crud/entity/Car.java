@@ -1,9 +1,6 @@
 package com.cars.crud.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,11 +12,20 @@ import lombok.NoArgsConstructor;
 @Table(name = "CAR_TBL")
 public class Car {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "brand")
     private String brand;
+
+    @Column(name = "model")
     private String model;
+
+    @Column(name = "generation")
     private String generation;
-    private String fuel_type;
+
+    @Column(name = "fuel_type")
+    private String fuelType;
 
 }
